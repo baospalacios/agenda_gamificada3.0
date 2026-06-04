@@ -44,7 +44,7 @@ export interface Task {
   due_date: string | null;        // YYYY-MM-DD
   scheduled_date: string | null;  // YYYY-MM-DD
   in_today: boolean;
-  created_at: number;
+  created_at: string;  // TIMESTAMPTZ ISO string — igual que todas las demás tablas
 }
 
 export type TaskInput = Omit<Task, 'id' | 'user_id' | 'created_at'>;

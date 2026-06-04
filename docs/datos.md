@@ -78,7 +78,7 @@ CREATE TABLE tasks (
   due_date        DATE,
   scheduled_date  DATE,
   in_today        BOOLEAN DEFAULT false,
-  created_at      BIGINT DEFAULT EXTRACT(EPOCH FROM now())::BIGINT * 1000
+  created_at      TIMESTAMPTZ DEFAULT now()  -- BIGINT descartado: EXTRACT()::BIGINT*1000 rompe parser SQL Editor
 );
 
 ALTER TABLE tasks ENABLE ROW LEVEL SECURITY;
