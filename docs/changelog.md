@@ -35,6 +35,31 @@
 - Crear proyecto en Vercel y Supabase
 - Ejecutar schema SQL de docs/datos.md en Supabase
 
+### 2026-06-04 — AI sesión 2 — Fase 1 completada
+
+**Added**:
+- `components/agenda/constants.ts`: THEMES (4 paletas), makeCSS(), SHORT_DAYS, PRIORITY_COLORS, SWIPE_THRESHOLD, TOAST_DURATION
+- `components/agenda/helpers.ts`: dateKey @critical, habitDueOnDate @critical, currentStreak, addDays, sameDay, dowMonday, keyToDate, lastNWeeks, timeToMinutes, minutesToLabel, capitalize
+- `components/agenda/Icon.tsx`: ~30 iconos SVG inline (nav, gamificación, misc)
+- `components/agenda/SwipeToRemove.tsx`: gesto touch-swipe para eliminar filas
+- `components/agenda/AddRow.tsx`: botón "+ Añadir" reutilizable
+- `components/agenda/Toast.tsx`: notificación celebración negro-top 2s
+- `components/agenda/AgendaApp.tsx`: shell principal, nav lateral desktop + bottom nav mobile, gestión de tema y sección activa
+- `app/login/page.tsx`: formulario real login/register con Supabase Auth
+- `app/app/page.tsx`: auth guard + mount AgendaApp
+- `app/layout.tsx`: metadata corregida, Google Fonts (Instrument Sans + Cormorant Garamond)
+- `app/globals.css`: reset CSS limpio
+- `.readmeAI`: estado completo del proyecto
+
+**Verificado**: `tsc --noEmit` sin errores
+
+**Pendiente de acción humana** (bloqueante para Fase 2):
+1. DROP tablas antiguas en Supabase SQL Editor
+2. Ejecutar schema nuevo de docs/datos.md
+3. Crear proyecto Vercel conectado a agenda_gamificada3.0
+4. Añadir env vars en Vercel (todos los entornos)
+5. Crear .env.local local
+
 ---
 
 ## Versiones

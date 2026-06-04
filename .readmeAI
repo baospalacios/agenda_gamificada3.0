@@ -1,0 +1,82 @@
+# Agenda Gamificada 3.0 — Estado del Proyecto
+
+## Última actualización: 2026-06-04
+
+## Estado actual
+**Fase 1 completada** — Infraestructura base lista y sin errores TypeScript.
+
+## Lo que está hecho
+
+### Fase 0 ✅
+- Documentación completa (12 archivos en docs/)
+- ARQUITECTO_1.md con protocolo de 15 leyes
+- Repo GitHub: https://github.com/baospalacios/agenda_gamificada3.0
+
+### Fase 1 ✅
+**lib/**
+- `lib/types.ts` — todos los tipos TypeScript (Habit, Task, Project, CalendarEvent, ChatMessage, etc.)
+- `lib/supabase.ts` — cliente singleton Supabase
+- `lib/groq.ts` — cliente Groq solo-servidor
+
+**components/agenda/**
+- `constants.ts` — THEMES (4 temas), makeCSS(), SHORT_DAYS, PRIORITY_COLORS, etc.
+- `helpers.ts` — dateKey @critical, habitDueOnDate @critical, currentStreak, addDays, minutesToLabel, etc.
+- `Icon.tsx` — ~30 iconos SVG inline (check, nav, gamificación, misc)
+- `SwipeToRemove.tsx` — gesto swipe-left para eliminar filas
+- `AddRow.tsx` — botón "+ Añadir" reutilizable
+- `Toast.tsx` — toast de celebración (negro, 2s)
+- `AgendaApp.tsx` — shell principal con nav lateral (desktop) + bottom nav (mobile), tema, sección activa
+
+**app/**
+- `app/page.tsx` — redirect a /login
+- `app/login/page.tsx` — formulario login/register con Supabase Auth
+- `app/app/page.tsx` — auth guard + monta AgendaApp
+- `app/layout.tsx` — metadata, Google Fonts (Instrument Sans + Cormorant Garamond)
+- `app/globals.css` — reset CSS limpio
+
+**next.config.mjs** — PWA con @ducanh2912/next-pwa (deshabilitado en dev)
+
+## Lo que falta
+
+### Pendiente del usuario (BLOQUEANTE para Fase 2)
+1. Ejecutar script DROP en Supabase SQL Editor (tablas antiguas)
+2. Ejecutar schema nuevo (de docs/datos.md) en Supabase SQL Editor
+3. Crear nuevo proyecto Vercel conectado a agenda_gamificada3.0
+4. Añadir env vars en Vercel: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, GROQ_API_KEY (en TODOS los entornos)
+5. Crear .env.local con los valores reales (hay .env.local.example como guía)
+
+### Fase 2 — Módulo Hábitos
+- `components/agenda/HabitsModule.tsx` — lista de hábitos por sección (mañana/día/noche)
+- `components/agenda/HabitModal.tsx` — modal de creación/edición
+- `lib/db/habits.ts` — CRUD hábitos + habit_logs en Supabase
+
+## Arquitectura de carpetas
+```
+agenda3.0codigo/
+├── app/
+│   ├── layout.tsx         ← metadatos, fuentes
+│   ├── globals.css        ← reset CSS
+│   ├── page.tsx           ← redirect /login
+│   ├── login/page.tsx     ← auth
+│   └── app/page.tsx       ← guard + AgendaApp
+├── components/agenda/
+│   ├── AgendaApp.tsx      ← shell (nav + secciones)
+│   ├── constants.ts       ← THEMES, makeCSS
+│   ├── helpers.ts         ← dateKey, habitDueOnDate @critical
+│   ├── Icon.tsx           ← SVGs inline
+│   ├── SwipeToRemove.tsx
+│   ├── AddRow.tsx
+│   └── Toast.tsx
+├── lib/
+│   ├── types.ts           ← todos los tipos
+│   ├── supabase.ts        ← cliente singleton
+│   └── groq.ts            ← solo-servidor
+└── docs/                  ← 12 archivos de documentación
+```
+
+## Notas técnicas críticas
+- `GROQ_API_KEY` NUNCA con prefijo NEXT_PUBLIC_
+- `export const runtime = 'nodejs'` REQUERIDO en app/api/chat/route.ts (pendiente)
+- Vercel env vars en TODOS los entornos (lección de Proyecto 1)
+- `habitDueOnDate` usa `(date.getDay()+6)%7` para lunes=0
+- `dateKey()` es la clave canónica para habit_logs y Habit.checks
