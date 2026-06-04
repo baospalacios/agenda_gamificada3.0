@@ -20,8 +20,8 @@ CREATE TABLE habits (
   id           UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id      UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
   name         TEXT NOT NULL,
-  section      TEXT NOT NULL DEFAULT 'día'
-                 CHECK (section IN ('mañana', 'día', 'noche')),
+  section      TEXT NOT NULL DEFAULT 'dia'
+                 CHECK (section IN ('manana', 'dia', 'noche')),  -- ASCII: ñ/í rompen parser SQL
   is_key       BOOLEAN DEFAULT false,
   freq         TEXT NOT NULL DEFAULT 'daily'
                  CHECK (freq IN ('daily', 'weekdays', 'weekly', 'biweekly', 'every_n', 'specific_days')),
@@ -110,7 +110,7 @@ CREATE TABLE events (
   name             TEXT NOT NULL,
   event_date       DATE,                      -- NULL si recurring=true
   event_type       TEXT DEFAULT 'other'
-                     CHECK (event_type IN ('examen', 'reunion', 'cumpleaños', 'other')),
+                     CHECK (event_type IN ('examen', 'reunion', 'cumpleanos', 'other')),  -- ASCII
   recurring        BOOLEAN DEFAULT false,
   recurring_month  INT,                       -- 0-11 (enero=0), solo si recurring=true
   recurring_day    INT                        -- 1-31, solo si recurring=true

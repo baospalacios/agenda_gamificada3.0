@@ -13,59 +13,60 @@
 - [x] Schema SQL completo diseñado (docs/datos.md)
 - [x] Plan de desarrollo por fases (docs/plan-desarrollo.md)
 - [x] Docs de arquitectura completos
-- [ ] Repositorio GitHub creado
+- [x] Repositorio GitHub creado — https://github.com/baospalacios/agenda_gamificada3.0
 - [ ] Proyecto Vercel creado y vinculado al repo
-- [ ] Proyecto Supabase creado y schema ejecutado
+- [x] Proyecto Supabase creado — elhbtqlyhbifxbumxwpl.supabase.co
+- [~] Schema Supabase ejecutado (tablas antiguas borradas, schema nuevo en progreso)
 
 ---
 
 ## FASE 1 — Infraestructura base
 
 ### Setup del proyecto
-- [ ] `npm create next-app@latest agenda3` con TypeScript
-- [ ] Instalar `@supabase/supabase-js`
-- [ ] Instalar `groq-sdk`
-- [ ] Instalar `@ducanh2912/next-pwa`
-- [ ] Configurar `next.config.js` (withPWA)
-- [ ] Verificar `tsconfig.json` con strict: true
-- [ ] Crear `.env.local` con las 3 variables
+- [x] `npm create next-app@latest` con TypeScript
+- [x] Instalar `@supabase/supabase-js`
+- [x] Instalar `groq-sdk`
+- [x] Instalar `@ducanh2912/next-pwa`
+- [x] Configurar `next.config.mjs` (withPWA, disable en dev)
+- [x] Verificar `tsconfig.json` con strict: true y alias @/*
+- [ ] Crear `.env.local` con las 3 variables (acción humana pendiente)
 
-### Tipos (lib/types.ts) — antes de implementar cualquier otra cosa
-- [ ] Tipo `ThemeKey` — 'light' | 'navy' | 'dark' | 'serio'
-- [ ] Tipo `HabitFreq` — 'daily' | 'weekdays' | 'weekly' | 'biweekly' | 'every_n' | 'specific_days'
-- [ ] Tipo `Habit` con todos los campos (incluido checks virtual)
-- [ ] Tipo `HabitInput`
-- [ ] Tipo `Task` con dueDate, scheduledDate, inToday
-- [ ] Tipo `TaskInput`
-- [ ] Tipo `Subtask`
-- [ ] Tipo `SubtaskInput`
-- [ ] Tipo `Project` con subtasks: Subtask[]
-- [ ] Tipo `ProjectInput`
-- [ ] Tipo `CalendarEvent` con recurring fields
-- [ ] Tipo `EventInput`
-- [ ] Tipo `ChatMessage` con role: 'user' | 'assistant'
-- [ ] Tipo `HeatmapDay`
-- [ ] Tipo `HabitProgress`
+### Tipos (lib/types.ts)
+- [x] Tipo `ThemeKey`
+- [x] Tipo `HabitFreq`
+- [x] Tipo `Habit` con todos los campos (checks virtual)
+- [x] Tipo `HabitInput`
+- [x] Tipo `Task`
+- [x] Tipo `TaskInput`
+- [x] Tipo `Subtask`
+- [x] Tipo `SubtaskInput`
+- [x] Tipo `Project` con subtasks: Subtask[]
+- [x] Tipo `ProjectInput`
+- [x] Tipo `CalendarEvent` con recurring fields
+- [x] Tipo `EventInput`
+- [x] Tipo `ChatMessage`
+- [x] Tipo `HeatmapDay`
+- [x] Tipo `HabitProgress`
 
 ### Lib
-- [ ] `lib/supabase.ts` — cliente singleton con persistSession: true
-- [ ] `lib/groq.ts` — cliente Groq con modelo por defecto
+- [x] `lib/supabase.ts` — cliente singleton con persistSession: true
+- [x] `lib/groq.ts` — cliente Groq con GROQ_MODEL constante
 
 ### Core (M01)
-- [ ] `constants.ts` — THEMES (light, navy, dark, serio), makeCSS(), SHORT_DAYS, MONTH_NAMES
-- [ ] `helpers.ts` — dateKey (@critical), addDays, sameDay, habitDueOnDate (@critical), freqLabel
-- [ ] `Icon.tsx` — íconos: home, list, calendar, chart, coach, settings, plus, trash, edit, check
-- [ ] `shared/SwipeToRemove.tsx` — threshold 90px, táctil + mouse
-- [ ] `shared/AddRow.tsx` — fila "+ Añadir X"
-- [ ] `shared/TimePicker.tsx` — chips: 15, 30, 45, 60, 90, 120 min
-- [ ] `AgendaApp.tsx` — shell con 6 tabs + sidebar desktop 172px
+- [x] `constants.ts` — THEMES, makeCSS(), SHORT_DAYS, SECTION_LABELS, PRIORITY_COLORS, etc.
+- [x] `helpers.ts` — dateKey @critical, habitDueOnDate @critical, currentStreak, addDays, minutesToLabel
+- [x] `Icon.tsx` — ~30 iconos SVG inline
+- [x] `SwipeToRemove.tsx` — threshold 90px, táctil
+- [x] `AddRow.tsx` — fila "+ Añadir X"
+- [ ] `TimePicker.tsx` — chips: 15, 30, 45, 60, 90, 120 min
+- [x] `AgendaApp.tsx` — shell con bottom nav mobile + sidebar desktop 172px
+- [x] `Toast.tsx` — celebración negro-top 2s
 
 ### Auth (M02)
-- [ ] `LoginPage.tsx` — form email + password + botón entrar
-- [ ] `app/login/page.tsx`
-- [ ] `app/app/page.tsx` — force-dynamic, getSession, onAuthStateChange
-- [ ] `app/layout.tsx` — metadata PWA (name, description, icons, theme_color)
-- [ ] `app/page.tsx` — redirect a /login
+- [x] `app/login/page.tsx` — formulario login/register con Supabase Auth, modo toggle
+- [x] `app/app/page.tsx` — force-dynamic, getSession → redirect o AgendaApp
+- [x] `app/layout.tsx` — metadata, Google Fonts
+- [x] `app/page.tsx` — redirect a /login
 
 ---
 

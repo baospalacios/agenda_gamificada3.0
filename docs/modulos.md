@@ -11,8 +11,8 @@
 
 | ID | Módulo | Responsabilidad | Estado |
 |----|--------|----------------|--------|
-| M01 | core | Shell, nav, temas, shared components | `pendiente` |
-| M02 | auth | Login, Supabase Auth | `pendiente` |
+| M01 | core | Shell, nav, temas, shared components | `en-progreso` (falta TimePicker) |
+| M02 | auth | Login, Supabase Auth | `completado` |
 | M03 | habitos | Hábitos CRUD, frecuencias, checks por fecha | `pendiente` |
 | M04 | tareas | Tareas CRUD, filtros, scheduling | `pendiente` |
 | M05 | hoy | Vista del día, progreso, navegación de fechas | `pendiente` |

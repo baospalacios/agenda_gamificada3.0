@@ -27,4 +27,5 @@ El proyecto está en fase de planificación. Esta lista se actualiza en el momen
 
 | ID | Archivo:línea | Descripción | Impacto | Prioridad | Estado | Versión objetivo |
 |----|--------------|-------------|---------|-----------|--------|-----------------|
-| — | — | Sin deuda registrada | — | — | — | — |
+| DT-001 | components/agenda/*.ts(x) | Cabeceras de archivo incompletas: falta `// Autor:` y `// Versión 1.0 — fecha` según LEY 13 | Violación guía de estilo; no afecta funcionalidad | Baja | pendiente | v0.2.0 |
+| DT-002 | ARQUITECTO_1.md | LEY 1 violada en sesión 2: STRUCTURE MAP y SYMBOL INDEX no se actualizaron al crear cada archivo, sino al final de la sesión | Riesgo de docs desincronizados en futuras sesiones | Media | pagada (corregido en sesión 2) | — |

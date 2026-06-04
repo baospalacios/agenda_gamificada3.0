@@ -116,7 +116,15 @@ export function makeCSS(themeKey: ThemeKey): React.CSSProperties & Record<string
 export const SHORT_DAYS = ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá', 'Do'] as const;
 export const FULL_DAYS  = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'] as const;
 
-export const SECTIONS = ['mañana', 'día', 'noche'] as const;
+// Valores ASCII que se guardan en BD (sin ñ/í para evitar errores de encoding SQL)
+export const SECTIONS = ['manana', 'dia', 'noche'] as const;
+
+// Lo que ve el usuario en la UI (con acentos correctos)
+export const SECTION_LABELS: Record<string, string> = {
+  manana: 'Mañana',
+  dia:    'Día',
+  noche:  'Noche',
+};
 
 export const PRIORITY_LABELS: Record<string, string> = {
   alta:  'Alta',
@@ -131,10 +139,10 @@ export const PRIORITY_COLORS: Record<string, string> = {
 };
 
 export const EVENT_TYPE_LABELS: Record<string, string> = {
-  examen:     'Examen',
-  reunion:    'Reunión',
-  cumpleaños: 'Cumpleaños',
-  other:      'Otro',
+  examen:      'Examen',
+  reunion:     'Reunión',
+  cumpleanos:  'Cumpleaños',  // BD guarda 'cumpleanos' (ASCII); aquí mostramos con tilde
+  other:       'Otro',
 };
 
 // Umbral de swipe para eliminar (px)

@@ -735,10 +735,10 @@ Protocolo: antes de modificar una función @critical → abrir docs/dependencias
 | **Tipo** | PWA móvil + desktop |
 | **Lenguaje principal** | TypeScript |
 | **Lenguajes secundarios** | CSS (inline via makeCSS), SQL |
-| **Repositorio** | [pendiente — crear en GitHub] |
-| **Deploy** | [pendiente — crear en Vercel] |
+| **Repositorio** | https://github.com/baospalacios/agenda_gamificada3.0 |
+| **Deploy** | pendiente — crear proyecto en Vercel |
 | **Última actualización** | 2026-06-04 |
-| **Actualizado por** | AI sesión 1 |
+| **Actualizado por** | AI sesión 2 |
 
 ---
 
@@ -785,16 +785,17 @@ Protocolo: antes de modificar una función @critical → abrir docs/dependencias
 | Campo | Valor |
 |-------|-------|
 | **Versión** | 0.1.0 |
-| **Fase** | `planning` → listo para Fase 1 |
-| **Módulos completados** | 0 / 10 |
-| **Porcentaje global** | 0% |
-| **Último diagnóstico** | 2026-06-04 — sesión 1 |
-| **Salud del proyecto** | 🟢 sano — docs completos, sin código aún |
+| **Fase** | Fase 1 completada → preparando Fase 2 |
+| **Módulos completados** | M02 completado. M01 en progreso. 8/10 pendientes |
+| **Porcentaje global** | ~15% |
+| **Último diagnóstico** | 2026-06-04 — sesión 2 |
+| **Salud del proyecto** | 🟡 atención — LEY 1 violada en sesión anterior (docs retrasados); subsanado |
 
 ### Hitos
 | Hito | Versión | Estado |
 |------|---------|--------|
-| Prototipo mínimo funcional | v0.1.0 | `pendiente` |
+| Infra base + auth funcional | v0.1.0 | `en-progreso` (falta setup Vercel/Supabase) |
+| Prototipo mínimo funcional | v0.2.0 | `pendiente` |
 | Todos los módulos core | v1.0.0 | `pendiente` |
 
 ---
@@ -822,33 +823,39 @@ Protocolo: antes de modificar una función @critical → abrir docs/dependencias
 > Debe ser suficientemente concreto para que una IA nueva lo ejecute sin preguntar.
 
 ### Objetivo activo
-Fase 0 completada. Iniciar Fase 1 — infraestructura base (M01 + M02).
+Fase 1 completada. Ejecutando setup de Supabase + Vercel (acciones humanas). Luego Fase 2 — Módulo Hábitos.
 
 ### Estado detallado
-- Feature list v1.0 definida y aprobada (2026-06-04)
-- 10 módulos definidos con contratos TypeScript en docs/modulos.md
-- Schema SQL completo en docs/datos.md (8 tablas + RLS)
-- Plan de desarrollo en docs/plan-desarrollo.md (7 fases)
-- Convención @usedBy/@critical activa — ver docs/dependencias.md
-- Sin código escrito aún — todos los docs están listos
+- M01 core: en progreso (falta TimePicker.tsx)
+- M02 auth: completado (login/register + auth guard)
+- lib/types.ts: completo (todos los tipos)
+- lib/supabase.ts: completo
+- lib/groq.ts: completo
+- components/agenda/constants.ts: completo (THEMES, makeCSS, SECTION_LABELS, PRIORITY_COLORS)
+- components/agenda/helpers.ts: completo (dateKey @critical, habitDueOnDate @critical, etc.)
+- components/agenda/Icon.tsx: completo (~30 SVGs)
+- components/agenda/AgendaApp.tsx: completo (shell nav desktop+mobile)
+- components/agenda/SwipeToRemove.tsx, AddRow.tsx, Toast.tsx: completos
+- tsc --noEmit: 0 errores
+- Commit estable: f6035dd
 
-### Siguiente paso inmediato
-1. Crear repositorio GitHub y conectarlo a Vercel
-2. `npm create next-app@latest` con TypeScript
-3. Ejecutar schema SQL de docs/datos.md en Supabase Dashboard
-4. Empezar Fase 1: lib/types.ts PRIMERO (tipos antes de implementar)
+### Pendiente de acción humana (BLOQUEANTE para Fase 2)
+1. Ejecutar schema SQL nuevo en Supabase (en progreso)
+2. Crear proyecto Vercel vinculado a agenda_gamificada3.0
+3. Añadir env vars en Vercel (Production + Preview + Development): NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, GROQ_API_KEY
+4. Crear .env.local local
 
-### Pendiente de acción humana
-- Crear repo en GitHub
-- Crear proyecto en Vercel y vincularlo al repo
-- Crear proyecto en Supabase y ejecutar schema de docs/datos.md
-- Añadir variables de entorno en Vercel (ver docs/seguridad.md)
+### Siguiente paso de código (después del setup)
+Fase 2 — HabitsModule:
+1. lib/db/habits.ts — funciones CRUD de Supabase para habits + habit_logs
+2. components/agenda/habitos/HabitsModule.tsx — lista por sección mañana/dia/noche
+3. components/agenda/habitos/HabitModal.tsx — modal crear/editar
 
 ### Último commit estable
-ninguno — proyecto no inicializado
+f6035dd — feat: Fase 1 completada — infraestructura base
 
 ### Último diagnóstico ejecutado
-2026-06-04 — sesión 1 — planificación completa
+2026-06-04 — sesión 2 — diagnóstico ejecutado post-commit (tardío, se registra como deuda técnica)
 
 ---
 

@@ -19,7 +19,7 @@ export interface Habit {
   id: string;
   user_id: string;
   name: string;
-  section: 'mañana' | 'día' | 'noche';
+  section: 'manana' | 'dia' | 'noche';  // ASCII en BD; UI muestra "Mañana"/"Día"/"Noche"
   is_key: boolean;
   freq: HabitFreq;
   freq_days: number[];      // lunes=0 … domingo=6
@@ -77,7 +77,7 @@ export type ProjectInput = Omit<Project, 'id' | 'user_id'>;
 
 // ─── Calendario ─────────────────────────────────────────────────────────────
 
-export type EventType = 'examen' | 'reunion' | 'cumpleaños' | 'other';
+export type EventType = 'examen' | 'reunion' | 'cumpleanos' | 'other';  // ASCII en BD; UI muestra "Cumpleaños"
 
 export interface CalendarEvent {
   id: string;
