@@ -1,11 +1,11 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import AgendaApp from '@/components/agenda/AgendaApp';
+
+export const dynamic = 'force-dynamic';
 
 export default function AppPage() {
   const router = useRouter();
@@ -25,11 +25,11 @@ export default function AppPage() {
     return (
       <div style={{
         minHeight: '100dvh',
-        background: '#0E1628',
+        background: 'var(--color-bg, #0E1628)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#8A93B0',
+        color: 'var(--color-text-muted, #8A93B0)',
         fontFamily: "'Instrument Sans', sans-serif",
         fontSize: 14,
       }}>

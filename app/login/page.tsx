@@ -24,8 +24,18 @@ export default function LoginPage() {
         const { error } = await supabase.auth.signInWithPassword({ email, password: pass });
         if (error) throw error;
       } else {
-        const { error } = await supabase.auth.signUp({ email, password: pass });
-        if (error) throw error;
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password: pass }),
+        });
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.error ?? 'Error al crear la cuenta');
+        }
+        // Iniciar sesión automáticamente tras el registro
+        const { error: loginError } = await supabase.auth.signInWithPassword({ email, password: pass });
+        if (loginError) throw loginError;
       }
       router.push('/app');
     } catch (err: unknown) {
