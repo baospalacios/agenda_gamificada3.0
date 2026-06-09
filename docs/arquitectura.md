@@ -40,6 +40,8 @@ agenda3.0codigo/                             ← raíz del proyecto Next.js
 │   ├── SwipeToRemove.tsx    ✅ HECHO        ← Swipe-left touch gesture. Threshold: 90px (SWIPE_THRESHOLD)
 │   ├── AddRow.tsx           ✅ HECHO        ← Botón "+ Añadir X" reutilizable
 │   ├── Toast.tsx            ✅ HECHO        ← Notificación celebración: negro, top, 2s (TOAST_DURATION)
+│   ├── ErrorBoundary.tsx    ✅ HECHO        ← React class component. Stack trace en dev, mensaje amigable en prod
+│   ├── ErrorMessage.tsx     ✅ HECHO        ← Errores inline de datos (Supabase/Groq). Props: error, onRetry, compact
 │   ├── TimePicker.tsx       ⏳ PENDIENTE    ← Chips de tiempo estimado (15, 30, 45, 60, 90, 120 min)
 │   ├── habitos/             ⏳ PENDIENTE    ← Fase 2
 │   ├── tareas/              ⏳ PENDIENTE    ← Fase 3
@@ -102,6 +104,8 @@ agenda3.0codigo/                             ← raíz del proyecto Next.js
 | `SwipeToRemove` | components/agenda/SwipeToRemove.tsx | Wrapper touch swipe-left para eliminar. Umbral: 90px | HabitsModule, TasksModule, TodayModule |
 | `AddRow` | components/agenda/AddRow.tsx | Botón '+ Añadir X' con icono plus | HabitsModule, TasksModule, ProjectsModule |
 | `Toast` | components/agenda/Toast.tsx | Notificación celebración: negro fijo top, desaparece en 2s | AgendaApp (único punto de montaje) |
+| `ErrorBoundary` | components/agenda/ErrorBoundary.tsx | Class component. Captura errores de render. Dev: stack trace. Prod: mensaje amigable | app/app/page.tsx |
+| `ErrorMessage` | components/agenda/ErrorMessage.tsx | Errores inline de datos. Props: error, onRetry, compact | HabitsModule, TasksModule, CoachModule y demás |
 
 ---
 

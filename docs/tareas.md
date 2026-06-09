@@ -60,6 +60,8 @@
 - [x] `SwipeToRemove.tsx` — threshold 90px, táctil
 - [x] `AddRow.tsx` — fila "+ Añadir X"
 - [ ] `TimePicker.tsx` — chips: 15, 30, 45, 60, 90, 120 min
+- [x] `ErrorBoundary.tsx` — captura errores de render, muestra detalle en dev
+- [x] `ErrorMessage.tsx` — errores inline de datos (Supabase/Groq), props: error, onRetry, compact
 - [x] `AgendaApp.tsx` — shell con bottom nav mobile + sidebar desktop 172px
 - [x] `Toast.tsx` — celebración negro-top 2s
 
