@@ -43,8 +43,12 @@ agenda3.0codigo/                             ← raíz del proyecto Next.js
 │   ├── ErrorBoundary.tsx    ✅ HECHO        ← React class component. Stack trace en dev, mensaje amigable en prod
 │   ├── ErrorMessage.tsx     ✅ HECHO        ← Errores inline de datos (Supabase/Groq). Props: error, onRetry, compact
 │   ├── TimePicker.tsx       ⏳ PENDIENTE    ← Chips de tiempo estimado (15, 30, 45, 60, 90, 120 min)
-│   ├── habitos/             ⏳ PENDIENTE    ← Fase 2
+│   ├── habitos/
+│   │   ├── HabitsModule.tsx ✅ HECHO        ← Entrada del tab Hábitos. Nav fecha + 3 secciones + modal
+│   │   ├── HabitSection.tsx ✅ HECHO        ← Lista hábitos de un momento del día con checkbox + swipe
+│   │   └── HabitModal.tsx   ✅ HECHO        ← Bottom sheet crear/editar hábito (frecuencias dinámicas)
 │   ├── tareas/              ⏳ PENDIENTE    ← Fase 3
+
 │   ├── hoy/                 ⏳ PENDIENTE    ← Fase 3
 │   ├── proyectos/           ⏳ PENDIENTE    ← Fase 4
 │   ├── calendario/          ⏳ PENDIENTE    ← Fase 4
@@ -106,6 +110,10 @@ agenda3.0codigo/                             ← raíz del proyecto Next.js
 | `Toast` | components/agenda/Toast.tsx | Notificación celebración: negro fijo top, desaparece en 2s | AgendaApp (único punto de montaje) |
 | `ErrorBoundary` | components/agenda/ErrorBoundary.tsx | Class component. Captura errores de render. Dev: stack trace. Prod: mensaje amigable | app/app/page.tsx |
 | `ErrorMessage` | components/agenda/ErrorMessage.tsx | Errores inline de datos. Props: error, onRetry, compact | HabitsModule, TasksModule, CoachModule y demás |
+| `useHabits` | hooks/useHabits.ts | CRUD hábitos + habit_logs + streak_logs. Retorna: habits, toggleCheck, addHabit, editHabit, deleteHabit, loading, error | HabitsModule, TodayModule |
+| `HabitsModule` | components/agenda/habitos/HabitsModule.tsx | Tab hábitos: nav fecha, 3 secciones, modal. Consume useHabits | AgendaApp |
+| `HabitSection` | components/agenda/habitos/HabitSection.tsx | Lista hábitos de una sección filtrados por habitDueOnDate | HabitsModule |
+| `HabitModal` | components/agenda/habitos/HabitModal.tsx | Bottom sheet crear/editar. Frecuencias dinámicas | HabitsModule |
 
 ---
 

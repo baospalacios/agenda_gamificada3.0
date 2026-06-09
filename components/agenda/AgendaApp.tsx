@@ -11,8 +11,7 @@ import Icon from './Icon';
 import Toast from './Toast';
 import type { ThemeKey } from '@/lib/types';
 
-// Módulos — se irán descomentando conforme se implementen
-// import HabitsModule   from './HabitsModule';
+import HabitsModule from './habitos/HabitsModule';
 // import TasksModule    from './TasksModule';
 // import TodayModule    from './TodayModule';
 // import ProjectsModule from './ProjectsModule';
@@ -48,8 +47,8 @@ export default function AgendaApp({ initialTheme = 'navy' }: AgendaAppProps) {
 
   function renderSection() {
     switch (section) {
+      case 'habits':   return <HabitsModule />;
       // Se irán activando por fases:
-      // case 'habits':   return <HabitsModule theme={theme} showToast={showToast} />;
       // case 'tasks':    return <TasksModule  theme={theme} showToast={showToast} />;
       // case 'today':    return <TodayModule  theme={theme} showToast={showToast} />;
       // case 'projects': return <ProjectsModule theme={theme} />;

@@ -75,22 +75,10 @@
 
 ## FASE 2 — Hábitos (M03)
 
-- [ ] `useHabits.ts`
-  - [ ] Carga inicial: habits + habit_logs del mes
-  - [ ] toggleCheck: optimistic update + insert/delete en habit_logs + updateStreakLog
-  - [ ] addHabit
-  - [ ] editHabit
-  - [ ] deleteHabit (con habit_logs en cascade)
-  - [ ] updateStreakLog: recalcula status del día y upsert en streak_logs
-- [ ] `HabitSection.tsx`
-  - [ ] Filtra por momento del día (mañana/día/noche)
-  - [ ] Filtra por habitDueOnDate(habit, fecha_activa)
-  - [ ] Checkbox visual con estado del check
-  - [ ] Botón editar / eliminar con swipe
-- [ ] `HabitForm.tsx`
-  - [ ] Campos: nombre, sección (mañana/día/noche), is_key
-  - [ ] Selector de frecuencia: diario, días laborables, semanal, quincenal, cada N días, días específicos
-  - [ ] Preview de próximas fechas según frecuencia elegida
+- [x] `useHabits.ts` — carga habits+logs, toggleCheck optimistic, addHabit, editHabit, deleteHabit, upsertStreakLog
+- [x] `HabitsModule.tsx` — nav fecha, 3 secciones, gestión modal
+- [x] `HabitSection.tsx` — lista por sección, habitDueOnDate, checkbox, swipe-delete, edit
+- [x] `HabitModal.tsx` — bottom sheet crear/editar, frecuencias dinámicas
 
 ---
 
