@@ -14,9 +14,9 @@
 - [x] Plan de desarrollo por fases (docs/plan-desarrollo.md)
 - [x] Docs de arquitectura completos
 - [x] Repositorio GitHub creado — https://github.com/baospalacios/agenda_gamificada3.0
-- [ ] Proyecto Vercel creado y vinculado al repo
+- [x] Proyecto Vercel creado y vinculado al repo
 - [x] Proyecto Supabase creado — elhbtqlyhbifxbumxwpl.supabase.co
-- [~] Schema Supabase ejecutado (tablas antiguas borradas, schema nuevo en progreso)
+- [x] Schema Supabase ejecutado (8 tablas + RLS + políticas)
 
 ---
 
@@ -29,7 +29,8 @@
 - [x] Instalar `@ducanh2912/next-pwa`
 - [x] Configurar `next.config.mjs` (withPWA, disable en dev)
 - [x] Verificar `tsconfig.json` con strict: true y alias @/*
-- [ ] Crear `.env.local` con las 3 variables (acción humana pendiente)
+- [x] Variables de entorno en Vercel (Production + Preview + Development)
+- [x] Crear `.env.local` con las 3 variables
 
 ### Tipos (lib/types.ts)
 - [x] Tipo `ThemeKey`

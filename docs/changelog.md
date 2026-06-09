@@ -60,6 +60,24 @@
 4. Añadir env vars en Vercel (todos los entornos)
 5. Crear .env.local local
 
+### 2026-06-09 — AI sesión 3 — Setup completo
+
+**Done**:
+- Schema SQL ejecutado en Supabase (8 tablas + RLS + políticas)
+- Proyecto Vercel creado y vinculado a agenda_gamificada3.0
+- Variables de entorno configuradas en Vercel (Production + Preview + Development)
+- .env.local creado localmente
+- Correcciones de SQL: section/event_type en ASCII (sin ñ/í), tasks.created_at TIMESTAMPTZ
+- STRUCTURE MAP y SYMBOL INDEX sincronizados con código real
+- docs/tareas.md: Fase 0 y Fase 1 completadas al 100% (excepto TimePicker)
+
+**Decisiones**:
+- SUPABASE_ANON_KEY usa nuevo formato sb_publishable_... (Supabase lo renombró)
+- section BD: 'manana'/'dia'/'noche' (ASCII); event_type: 'cumpleanos' (ASCII)
+- tasks.created_at: TIMESTAMPTZ en vez de BIGINT (EXTRACT()::BIGINT rompía parser)
+
+**Siguiente**: Fase 2 — Módulo Hábitos (M03)
+
 ---
 
 ## Versiones

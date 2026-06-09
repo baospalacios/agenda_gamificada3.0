@@ -785,11 +785,11 @@ Protocolo: antes de modificar una función @critical → abrir docs/dependencias
 | Campo | Valor |
 |-------|-------|
 | **Versión** | 0.1.0 |
-| **Fase** | Fase 1 completada → preparando Fase 2 |
+| **Fase** | Fase 1 + setup completados → Fase 2 activa |
 | **Módulos completados** | M02 completado. M01 en progreso. 8/10 pendientes |
-| **Porcentaje global** | ~15% |
-| **Último diagnóstico** | 2026-06-04 — sesión 2 |
-| **Salud del proyecto** | 🟡 atención — LEY 1 violada en sesión anterior (docs retrasados); subsanado |
+| **Porcentaje global** | ~20% |
+| **Último diagnóstico** | 2026-06-09 — sesión 3 |
+| **Salud del proyecto** | 🟢 sano — setup completo, listo para Fase 2 |
 
 ### Hitos
 | Hito | Versión | Estado |
@@ -823,7 +823,7 @@ Protocolo: antes de modificar una función @critical → abrir docs/dependencias
 > Debe ser suficientemente concreto para que una IA nueva lo ejecute sin preguntar.
 
 ### Objetivo activo
-Fase 1 completada. Ejecutando setup de Supabase + Vercel (acciones humanas). Luego Fase 2 — Módulo Hábitos.
+Setup completo. Iniciando Fase 2 — Módulo Hábitos (M03).
 
 ### Estado detallado
 - M01 core: en progreso (falta TimePicker.tsx)
@@ -839,11 +839,14 @@ Fase 1 completada. Ejecutando setup de Supabase + Vercel (acciones humanas). Lue
 - tsc --noEmit: 0 errores
 - Commit estable: f6035dd
 
-### Pendiente de acción humana (BLOQUEANTE para Fase 2)
-1. Ejecutar schema SQL nuevo en Supabase (en progreso)
-2. Crear proyecto Vercel vinculado a agenda_gamificada3.0
-3. Añadir env vars en Vercel (Production + Preview + Development): NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, GROQ_API_KEY
-4. Crear .env.local local
+### Setup completado ✅
+1. ✅ Schema SQL ejecutado en Supabase (8 tablas + RLS)
+2. ✅ Proyecto Vercel creado y vinculado a agenda_gamificada3.0
+3. ✅ Env vars en Vercel (Production + Preview + Development)
+4. ✅ .env.local creado localmente
+
+### Pendiente de acción humana
+— ninguna, setup completo —
 
 ### Siguiente paso de código (después del setup)
 Fase 2 — HabitsModule:
